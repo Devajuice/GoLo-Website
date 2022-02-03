@@ -55,7 +55,7 @@ header .logo
 .btns .ion-icon
 {
   font-size: 1.5em;
-  color: var(--black);
+  color: var(--white);
 }
 .btns.menuToggle ion-icon
 {
