@@ -1,68 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/Video&Imgs/favicon (1).ico">
     <title>GoLo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GoLo</a>
-        <div class="righSide">
-            <div class="btns dayNight">
-                <ion-icon name="moon-outline"></ion-icon>
-                <ion-icon name="sunny-outline"></ion-icon>
-            </div>
-            <div class="btns menuToggle">
-                <ion-icon name="menu-outline"></ion-icon>
-                <ion-icon name="close-outline"></ion-icon>
-            </div>
-        </div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </header>
-    <section class="main">
-        <video src="/Video&Imgs/video.mp4" autoplay loop muted type="mp4"></video>
-        <img src="/Video&Imgs/mask.jpg" class="mask">
-        <h2>About Me</h2>
+    <section>
+        <img src="/Video&Imgs/stars.png" id="stars">
+        <img src="/Video&Imgs/moon.png" id="moon">
+        <img src="/Video&Imgs/stars.png" id="stars">
+        <img src="/Video&Imgs/mountains_behind.png" id="mountains_behind">
+        <h2 id="text">About Me</h2>
+        <a href="#sec" id="btn">About me</a>
+        <img src="/Video&Imgs/mountains_front.png" id="mountains_front">
     </section>
+    <div class="sec" id="sec">
+        <h2>About Me</h2>
+        <p>Hi, i am DJD, i am 14 years old i like to code when i am boared.</p>
+    </div>
 
-    <!--Sidebar Navigation -->
-    <ul class="navigation">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="project.html">Project</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
 
-    <h1>About Me</h1>
-
-    <p>Hi, my name is DJD, i am 14 years old.
-        <br>I like Coding HTML and much more.
-        <br> I like playing games, games like Minecraft and much more games.
-        <br> You can aslo see my projects in <a href="https://github.com/Realxxmonkey?tab=repositories">GitHub</a>
-    </p>
-
-
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script>
-    let dayNight = document.querySelector('.dayNight')
-    let menuToggle = document.querySelector('.menuToggle')
-    let body = document.querySelector('body')
-    let navigation = document.querySelector('.navigation')
-
-    dayNight.onclick = function(){
-        body.classList.toggle('dark')
-        dayNight.classList.toggle('active')
-    }
-
-    menuToggle.onclick = function(){
-        menuToggle.classList.toggle('active')
-        navigation.classList.toggle('active')
-    }
-</script>
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginRight = value * 4 + 'px';
+            header.style.top = value * 0.5 + 'px';
+        })
+    </script>
 </body>
 </html>
