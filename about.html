@@ -1,53 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GoLo</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/Video&Imgs/favicon (1).ico">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">GoLo</a>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </header>
-    <section>
-        <img src="/Video&Imgs/stars.png" id="stars">
-        <img src="/Video&Imgs/moon.png" id="moon">
-        <img src="/Video&Imgs/stars.png" id="stars">
-        <img src="/Video&Imgs/mountains_behind.png" id="mountains_behind">
-        <h2 id="text">About Me</h2>
-        <a href="#sec" id="btn">About me</a>
-        <img src="/Video&Imgs/mountains_front.png" id="mountains_front">
-    </section>
-    <div class="sec" id="sec">
-        <h2>About Me</h2>
-        <p>Hi, i am DJD, i am 14 years old i like to code when i am boared.</p>
+    
+    <div id="warp">
+        <nav>
+            <div class="logo">
+                DEVZ<strong>CODE</strong>
+            </div>
+             <button type="button" class="btn-hamburger" data-action="nav-toggle">
+                <span></span>  
+                <span></span> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="work.html">Work</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" data-action="dropdown-toggle">Projects</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="GamePython.html">GamePython</a>
+                        <a class="dropdown-item" href="Tic-Tac-Toe.html">Tic-Tac-Toe</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <p>
+                <strong>About Me</strong>
+                <br>
+                My name is Devajith and I am a web developer. I have a passion for web development and I am currently working on my portfolio website.
+            </p>
+        </div>
     </div>
 
     <script>
-        let stars = document.getElementById('stars');
-        let moon = document.getElementById('moon');
-        let mountains_behind = document.getElementById('mountains_behind');
-        let text = document.getElementById('text');
-        let btn = document.getElementById('btn');
-        let mountains_front = document.getElementById('mountains_front');
-        let header = document.querySelector('header');
+        let nav = document.querySelector('nav');
+        let dropdown = nav.querySelector('.dropdown');
+        let dropdownToggle = nav.querySelector("[data-action='dropdown-toggle']");
+        let navToggle = nav.querySelector("[data-action='nav-toggle']");
 
-        window.addEventListener('scroll', function(){
-            let value = window.scrollY;
-            stars.style.left = value * 0.25 + 'px';
-            moon.style.top = value * 1.05 + 'px';
-            mountains_behind.style.top = value * 0.5 + 'px';
-            mountains_front.style.top = value * 0 + 'px';
-            text.style.marginRight = value * 4 + 'px';
-            text.style.marginTop = value * 1.5 + 'px';
-            btn.style.marginRight = value * 4 + 'px';
-            header.style.top = value * 0.5 + 'px';
+        dropdownToggle.addEventListener('click', () => {
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            } else {
+                dropdown.classList.add('show');
+            }
+        })
+        navToggle.addEventListener('click', () => {
+            if (nav.classList.contains('opened')) {
+                nav.classList.remove('opened');
+            } else {
+                nav.classList.add('opened');
+            }
         })
     </script>
+
 </body>
 </html>
